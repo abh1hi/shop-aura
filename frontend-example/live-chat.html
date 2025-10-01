@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat - AURA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --c5: #9A52FF;
+            --bg-color: #FDFBFF;
+            --text-color: #333333;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-window {
+            width: 100%;
+            max-width: 400px;
+            height: 600px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: var(--c5);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .chat-log {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+        }
+
+        .message.sent .message-bubble {
+            background-color: var(--c5);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.received .message-bubble {
+            background-color: #eee;
+            color: var(--text-color);
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            padding: 0.8rem 1rem;
+            border-radius: 15px;
+            max-width: 80%;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 0.8rem 1rem;
+            font-size: 1rem;
+        }
+
+        .chat-input button {
+            background-color: var(--c5);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0.8rem 1.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="chat-window">
+        <div class="chat-header">Live Chat with AURA Support</div>
+        <div class="chat-log" id="chatLog">
+            <div class="message received">
+                <div class="message-bubble">Hello! How can I help you today?</div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatLog = document.getElementById('chatLog');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        function addMessage(message, type) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message', type);
+            
+            const bubble = document.createElement('div');
+            bubble.classList.add('message-bubble');
+            bubble.textContent = message;
+            
+            messageElement.appendChild(bubble);
+            chatLog.appendChild(messageElement);
+            chatLog.scrollTop = chatLog.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                addMessage(message, 'sent');
+                messageInput.value = '';
+                
+                // Simulate a reply
+                setTimeout(() => {
+                    addMessage("Thanks for your message! An agent will be with you shortly.", 'received');
+                }, 1000);
+            }
+        });
+
+        messageInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+    </script>
+
+</body>
+</html>

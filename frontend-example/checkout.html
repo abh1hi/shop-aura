@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - AURA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --c1: #FFB2E6;
+            --c2: #F7AEF8;
+            --c3: #E382F9;
+            --c4: #B388EB;
+            --c5: #9A52FF;
+            --c6: #8447FF;
+            --c7: #72DDF7;
+            --bg-color: #FDFBFF;
+            --text-color: #333333;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(253, 251, 255, 0.8);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--c5);
+        }
+
+        .page-header {
+            padding: 6rem 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .checkout-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        .checkout-form h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--light-gray);
+            padding-bottom: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .order-summary {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .order-summary h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .summary-row.total {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--light-gray);
+        }
+
+        .place-order-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--c5);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        footer {
+            padding: 5rem 0;
+            background-color: #1a1a1a;
+            color: #fdfbff;
+        }
+
+        @media (max-width: 992px) {
+            .checkout-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">AURA</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Checkout</h1>
+            </div>
+        </section>
+
+        <section class="section container">
+            <div class="checkout-layout">
+                <div class="checkout-form">
+                    <section>
+                        <h2>Shipping Information</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" id="address">
+                            </div>
+                            <!-- More address fields -->
+                        </form>
+                    </section>
+                    <section>
+                        <h2>Payment Details</h2>
+                        <form>
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number">
+                            </div>
+                            <!-- More payment fields -->
+                        </form>
+                    </section>
+                </div>
+                <aside class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>$205.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping</span>
+                        <span>$10.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span>$215.00</span>
+                    </div>
+                    <button class="place-order-btn">Place Order</button>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+</body>
+</html>

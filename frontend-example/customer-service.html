@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Service - AURA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --c1: #FFB2E6;
+            --c2: #F7AEF8;
+            --c3: #E382F9;
+            --c4: #B388EB;
+            --c5: #9A52FF;
+            --c6: #8447FF;
+            --c7: #72DDF7;
+            --bg-color: #FDFBFF;
+            --text-color: #333333;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(253, 251, 255, 0.8);
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--c5);
+        }
+
+        .page-header {
+            padding: 6rem 0;
+            background-color: var(--light-gray);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            cursor: pointer;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-answer p {
+            padding: 0 0 1.5rem 0;
+            margin: 0;
+            line-height: 1.8;
+        }
+
+        footer {
+            padding: 5rem 0;
+            background-color: #1a1a1a;
+            color: #fdfbff;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">AURA</a>
+            <!-- Add nav if needed -->
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Customer Service</h1>
+            </div>
+        </section>
+
+        <section class="section container faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What is your return policy?</h3>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept returns within 30 days of purchase. Items must be in their original condition with tags attached. Please visit our returns page for more details.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How do I track my order?</h3>
+                    <span>+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Once your order has shipped, you will receive an email with a tracking number. You can use this number to track your order on the carrier's website.</p>
+                </div>
+            </div>
+            <!-- Add more FAQ items here -->
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+    <script>
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                } else {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

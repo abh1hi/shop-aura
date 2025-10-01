@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendor Template - AURA</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        :root {
+            --c5: #9A52FF;
+            --text-color: #333333;
+            --light-gray: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-decoration: none;
+            color: var(--c5);
+        }
+
+        .vendor-header {
+            padding: 4rem 0;
+            text-align: center;
+            background-color: var(--light-gray);
+        }
+
+        .vendor-header img.vendor-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        .vendor-header h1 {
+            font-size: 3rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .vendor-header p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            /* Using the same product card style from the main site */
+        }
+
+        footer {
+            padding: 5rem 0;
+            background-color: #1a1a1a;
+            color: #fdfbff;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">AURA</a>
+            <!-- Main site navigation -->
+        </div>
+    </header>
+
+    <main>
+        <section class="vendor-header">
+            <img src="https://via.placeholder.com/120" alt="Vendor Logo" class="vendor-logo">
+            <h1>Vendor Name</h1>
+            <p>Short and engaging bio about the vendor and their brand ethos.</p>
+        </section>
+
+        <section class="section container">
+            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 4rem;">Our Products</h2>
+            <div class="product-grid">
+                <!-- Vendor's products would be dynamically loaded here -->
+                <div class="product-card">
+                    <!-- Product card structure from shop.html -->
+                </div>
+                 <div class="product-card">
+                    <!-- Product card structure from shop.html -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Footer content -->
+    </footer>
+
+</body>
+</html>
